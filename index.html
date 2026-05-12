@@ -68,6 +68,29 @@
     }
   </style>
 </head>
+  <!-- Script de Seguimiento Base -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=TU_ID_AQUI"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Configuración inicial
+  gtag('config', 'TU_ID_AQUI');
+
+  /**
+   * DOCUMENTACIÓN: Función trackWhatsApp
+   * Envía un evento personalizado a Google cuando el usuario contacta.
+   */
+  function trackWhatsApp(posicion) {
+    gtag('event', 'click_whatsapp', {
+      'ubicacion': posicion, // Indica si fue desde el menú o el botón flotante
+      'event_callback': function() {
+        console.log('Evento enviado con éxito desde: ' + posicion);
+      }
+    });
+  }
+</script>
 
 <body>
   <!-- NAVEGACIÓN -->
