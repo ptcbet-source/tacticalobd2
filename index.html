@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
@@ -7,57 +8,21 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
+  
   <script>
-   tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        naranja: '#F97316',      /* Naranja sólido profesional */
-        'naranja-oscuro': '#EA580C',
-        tecnico: '#0EA5E9',      /* Azul sólido para detalles */
-        negro: '#1a1a1a',        /* Negro sólido para textos */
-        gris: '#f9fafb',         /* Gris muy claro para fondos de tarjetas */
-      },
-    }
-  }
-}
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            naranja: '#F97316',
+            'naranja-oscuro': '#EA580C',
+            tecnico: '#0EA5E9',
+            negro: '#1a1a1a',
+            gris: '#f9fafb',
+          },
           fontFamily: {
             display: ['Orbitron', 'monospace'],
             body: ['Rajdhani', 'sans-serif'],
-          },
-          animation: {
-            'pulse-neon': 'pulseNeon 2s ease-in-out infinite',
-            'scan': 'scan 3s linear infinite',
-            'flicker': 'flicker 4s ease-in-out infinite',
-            'float': 'float 6s ease-in-out infinite',
-            'grid-move': 'gridMove 20s linear infinite',
-          },
-          keyframes: {
-            pulseNeon: {
-              '0%, 100%': { boxShadow: '0 0 5px #FF6B00, 0 0 10px #FF6B00, 0 0 20px #FF6B00' },
-              '50%': { boxShadow: '0 0 10px #FF6B00, 0 0 30px #FF6B00, 0 0 60px #FF6B00' },
-            },
-            scan: {
-              '0%': { transform: 'translateY(-100%)' },
-              '100%': { transform: 'translateY(400%)' },
-            },
-            flicker: {
-              '0%, 100%': { opacity: '1' },
-              '92%': { opacity: '1' },
-              '93%': { opacity: '0.4' },
-              '94%': { opacity: '1' },
-              '96%': { opacity: '0.6' },
-              '97%': { opacity: '1' },
-            },
-            float: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-12px)' },
-            },
-            gridMove: {
-              '0%': { backgroundPosition: '0 0' },
-              '100%': { backgroundPosition: '60px 60px' },
-            },
           }
         }
       }
@@ -72,122 +37,19 @@
       font-family: 'Rajdhani', sans-serif;
       overflow-x: hidden;
     }
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #0A0A0F; }
-    ::-webkit-scrollbar-thumb { background: #FF6B00; border-radius: 3px; }
-
     .grid-bg {
-      background-image:
-        linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
       background-size: 60px 60px;
-      animation: gridMove 20s linear infinite;
     }
-
-    .neon-text {
-      color: #FF6B00;
-      text-shadow: 0 0 7px #FF6B00, 0 0 15px #FF6B00, 0 0 30px #FF6B00;
-    }
-    .electric-text {
-      color: #00D4FF;
-      text-shadow: 0 0 7px #00D4FF, 0 0 15px #00D4FF;
-    }
-
-    .glitch {
-      position: relative;
-      animation: flicker 4s ease-in-out infinite;
-    }
-    .glitch::before,
-    .glitch::after {
-      content: attr(data-text);
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-    }
-    .glitch::before {
-      color: #00D4FF;
-      animation: glitchTop 3s linear infinite;
-      clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
-      transform: translateX(-3px);
-    }
-    .glitch::after {
-      color: #FF6B00;
-      animation: glitchBottom 2.5s linear infinite;
-      clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
-      transform: translateX(3px);
-    }
-    @keyframes glitchTop {
-      0%, 90%, 100% { transform: translateX(0); opacity: 0; }
-      91% { transform: translateX(-4px); opacity: 1; }
-      93% { transform: translateX(4px); opacity: 1; }
-      95% { transform: translateX(0); opacity: 0; }
-    }
-    @keyframes glitchBottom {
-      0%, 85%, 100% { transform: translateX(0); opacity: 0; }
-      86% { transform: translateX(4px); opacity: 1; }
-      88% { transform: translateX(-4px); opacity: 1; }
-      90% { transform: translateX(0); opacity: 0; }
-    }
-
     .service-card {
       background: linear-gradient(135deg, #1A1A25 0%, #111118 100%);
       border: 1px solid rgba(255, 107, 0, 0.2);
-      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-      position: relative;
-      overflow: hidden;
+      transition: all 0.4s ease;
     }
     .service-card:hover {
       border-color: rgba(255, 107, 0, 0.7);
       transform: translateY(-6px);
-      box-shadow: 0 0 25px rgba(255, 107, 0, 0.2), 0 20px 40px rgba(0,0,0,0.4);
     }
-
-    .scan-overlay {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
-    .scan-line {
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.4), transparent);
-      animation: scan 3s linear infinite;
-    }
-
-    .whatsapp-btn {
-      background: linear-gradient(135deg, #25D366, #128C7E);
-      box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    .whatsapp-btn:hover {
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 0 35px rgba(37, 211, 102, 0.6);
-    }
-
-    .neon-btn {
-      border: 2px solid #FF6B00;
-      color: #FF6B00;
-      background: transparent;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .neon-btn:hover { color: #0A0A0F; background: #FF6B00; box-shadow: 0 0 30px rgba(255,107,0,0.5); }
-
-    .divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #FF6B00, #00D4FF, transparent);
-    }
-
-    .stat-box {
-      border-left: 3px solid #FF6B00;
-      background: linear-gradient(90deg, rgba(255,107,0,0.07), transparent);
-    }
-
-    .icon-glow { filter: drop-shadow(0 0 8px #FF6B00); }
     .tag-badge {
       font-family: 'Orbitron', monospace;
       font-size: 10px;
@@ -197,172 +59,104 @@
       color: #00D4FF;
       display: inline-block;
     }
-
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+    .whatsapp-btn {
+      background: linear-gradient(135deg, #25D366, #128C7E);
     }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .neon-btn {
+      border: 2px solid #FF6B00;
+      color: #FF6B00;
     }
   </style>
 </head>
 
-<body class="bg-dark">
-
-  <nav class="navbar fixed top-0 w-full z-50 bg-dark/80 backdrop-blur-md border-b border-white/5">
+<body>
+  <!-- NAVEGACIÓN -->
+  <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-2">
-        <svg class="w-7 h-7 icon-glow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#FF6B00" stroke-width="2" stroke-linejoin="round"/>
-          <path d="M2 17l10 5 10-5" stroke="#FF6B00" stroke-width="2" stroke-linejoin="round"/>
-        </svg>
         <span class="font-display text-sm font-bold tracking-wider">
-         <span class="text-[#FF6B00]">TACTICAL</span> <span class="text-[#ffffff]">OBD2</span>     </span>
+          <span class="text-naranja">TACTICAL</span> <span class="text-white">OBD2</span>
         </span>
       </div>
-      <a href="https://wa.me/584143994464" target="_blank" class="whatsapp-btn font-display text-xs text-white font-bold px-4 py-2 rounded-lg flex items-center gap-2">
-        Contactar
-      </a>
+      <a href="https://wa.me/584143994464" class="whatsapp-btn text-xs text-white font-bold px-4 py-2 rounded-lg">Contactar</a>
     </div>
   </nav>
 
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-    <div class="grid-bg absolute inset-0 opacity-60"></div>
-    <div class="relative z-10 max-w-4xl mx-auto px-5 text-center py-20">
-      <div class="tag-badge mb-6 animate-pulse-neon">DIAGNÓSTICO AUTOMOTRIZ AVANZADO</div>
-      <h1 class="font-display font-black leading-none mb-4 mt-4">
-        <span class="block text-xl sm:text-2xl md:text-3xl text-white mb-1">Soluciones reales para fallas electrónicas complejas.</span>
-       <span class="text-naranja font-bold block text-3xl sm:text-4xl md:text-5xl">No adivinamos fallas, las encontramos</span>
+  <!-- HERO -->
+  <section class="relative min-h-[70vh] flex items-center justify-center pt-20">
+    <div class="grid-bg absolute inset-0 opacity-40"></div>
+    <div class="relative z-10 text-center px-6">
+      <div class="tag-badge mb-6">DIAGNÓSTICO AVANZADO</div>
+      <h1 class="font-display font-black text-3xl md:text-5xl mb-6">
+        <span class="text-white block">Soluciones reales para fallas.</span>
+        <span class="text-naranja">No adivinamos, encontramos.</span>
       </h1>
-      <p class="font-body text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-3 mt-6 leading-relaxed">
-        Especialista certificado en diagnóstico computarizado y reparación de <span class="text-naranja"> ECU/TCU</span>.
-        <br>
-        <span class="text-gray-300">+10 años decodificando fallas complejas.</span>
-        <div class="service-card">
- 
-  </p>
-</div>
-      </p>
-
-    
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a href="https://wa.me/5491112345678" target="_blank" class="whatsapp-btn font-display font-bold text-white text-sm px-8 py-4 rounded-xl flex items-center gap-3 w-full sm:w-auto justify-center">
-          ENVIAR MENSAJE AHORA
-        </a>
-        <a href="#servicios" class="neon-btn font-display font-bold text-sm px-8 py-4 rounded-xl w-full sm:w-auto text-center">
-          VER SERVICIOS
-        </a>
+      <div class="flex gap-4 justify-center">
+        <a href="#servicios" class="neon-btn px-8 py-3 rounded-xl font-bold">VER SERVICIOS</a>
       </div>
     </div>
   </section>
 
-  <div class="divider"></div>
-
-  <section id="servicios" class="py-20 px-4 relative overflow-hidden">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-14">
-        <div class="tag-badge mb-4">SERVICIOS</div>
-        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-3">
-          SOLUCIONES <span class="text-naranja">ELECTRÓNICAS</span>
-        </h2>
+  <!-- SECCIÓN SERVICIOS -->
+  <section id="servicios" class="py-20 bg-black/40">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl font-bold text-white">NUESTROS SERVICIOS</h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <!-- GRID DE CAJAS -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Tarjeta 1 -->
         <div class="service-card rounded-2xl p-7">
-          <div class="scan-overlay"><div class="scan-line"></div></div>
-          <div class="relative z-10">
-            <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-5" style="background: rgba(255,107,0,0.1); border: 1px solid rgba(255,107,0,0.3)">
-              <svg class="w-7 h-7 icon-glow" fill="none" viewBox="0 0 24 24" stroke="#FF6B00" stroke-width="1.5">
-                <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/>
-              </svg>
-            </div>
-            <h3 class="font-display text-xl font-bold text-white mb-3">Escaneo OBD & Diagnóstico</h3>
-            <p class="font-body text-gray-400 leading-relaxed">
-              Lectura profunda de códigos DTC en todos los sistemas: motor, transmisión, ABS y airbag. Identificamos fallas reales.
-            </p>
+          <div class="w-12 h-12 bg-naranja/10 border border-naranja/30 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-naranja" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"></path></svg>
           </div>
+          <h3 class="font-display text-xl font-bold text-white mb-3">Escaneo OBD</h3>
+          <p class="text-gray-400">Lectura profunda de códigos DTC e identificación de fallas reales.</p>
         </div>
 
-        <div class="service-card rounded-2xl p-7" style="border-color: rgba(255,107,0,0.5);">
-          <div class="relative z-10">
-            <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-5" style="background: rgba(255,107,0,0.15); border: 1px solid rgba(255,107,0,0.5)">
-              <svg class="w-7 h-7 icon-glow" fill="none" viewBox="0 0 24 24" stroke="#FF6B00" stroke-width="1.5">
-                <path d="M9 3h6l3 3v12a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1zM9 3v3h6V3M12 11v6m-3-3h6"/>
-              </svg>
-            </div>
-            <h3 class="font-display text-xl font-bold text-white mb-3">Reparación de ECUs</h3>
-            <p class="font-body text-gray-400 leading-relaxed">
-              Diagnóstico y reparación de unidades de control dañadas por humedad o cortocircuito. Sin reemplazos costosos.
-            </p>
-           
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
- 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Tarjeta 2 -->
         <div class="service-card rounded-2xl p-7">
-          <div class="scan-overlay"><div class="scan-line"></div></div>
-          <div class="relative z-10">
-            <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-5" style="background: rgba(255,107,0,0.1); border: 1px solid rgba(255,107,0,0.3)">
-              <svg class="w-7 h-7 icon-glow" fill="none" viewBox="0 0 24 24" stroke="#FF6B00" stroke-width="1.5">
-                <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/>
-              </svg>
-            </div>
-            <h3 class="font-display text-xl font-bold text-white mb-3">Mecanica General
-            <p class="font-body text-gray-400 leading-relaxed">
-            Mantenimiento preventivo y correctivo. Desde cambios de aceite hasta reparaciones de motor con precisión técnica.
-            </p>
+          <div class="w-12 h-12 bg-naranja/10 border border-naranja/30 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-naranja" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 11v6m-3-3h6"></path></svg>
           </div>
+          <h3 class="font-display text-xl font-bold text-white mb-3">Reparación ECUs</h3>
+          <p class="text-gray-400">Diagnóstico y reparación de unidades de control dañadas.</p>
         </div>
+
+        <!-- Tarjeta 3 (La nueva caja) -->
+        <div class="service-card rounded-2xl p-7">
+          <div class="w-12 h-12 bg-naranja/10 border border-naranja/30 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-naranja" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
+          </div>
+          <h3 class="font-display text-xl font-bold text-white mb-3">Mecánica General</h3>
+          <p class="text-gray-400">Mantenimiento preventivo y correctivo con precisión técnica.</p>
+        </div>
+
+      </div> <!-- Cierre del grid -->
+    </div> <!-- Cierre del container -->
   </section>
 
-  <!-- 1. CIERRA AQUÍ TU SECCIÓN DE CAJAS (Asegúrate de que este </section> exista) -->
-</section> 
+  <!-- FOOTER (FUERA DE LAS SECCIONES) -->
+  <footer class="py-12 border-t border-white/5 bg-black w-full">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col items-center text-center">
+      
+      <!-- REDES SOCIALES -->
+      <div class="flex justify-center gap-8 mb-8">
+        <a href="https://instagram.com/tacticalobd2" target="_blank" class="text-gray-400 hover:text-naranja transition-all">
+          <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://facebook.com/tacticalobd2" target="_blank" class="text-gray-400 hover:text-naranja transition-all">
+          <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+        </a>
+      </div>
 
-<!-- 2. FOOTER (Fuera de cualquier otra sección para que ocupe todo el ancho) -->
-<footer class="py-12 border-t border-white/5 bg-transparent w-full">
-  <div class="max-w-6xl mx-auto px-6 flex flex-col items-center text-center">
-    
-    <!-- BLOQUE DE REDES SOCIALES (Primero los iconos para que respiren) -->
-    <div class="flex justify-center gap-8 mb-8">
-      <a href="https://instagram.com/tacticalobd2" target="_blank" class="text-gray-400 hover:text-naranja transition-all hover:scale-110">
-        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      </a>
-      <a href="https://facebook.com/tacticalobd2" target="_blank" class="text-gray-400 hover:text-naranja transition-all hover:scale-110">
-        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-      </a>
-      <a href="https://tiktok.com/@tacticalobd2" target="_blank" class="text-gray-400 hover:text-naranja transition-all hover:scale-110">
-        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31 0 2.591.214 3.75.606V4.88c-1.027-.301-2.112-.455-3.225-.455-2.201 0-4.22.894-5.69 2.338l3.18 3.18c.677-.453 1.493-.721 2.373-.721 2.404 0 4.35 1.947 4.35 4.35s-1.946 4.35-4.35 4.35c-2.403 0-4.35-1.947-4.35-4.35 0-.88.268-1.696.721-2.373L6.154 8.07c-1.444 1.47-2.338 3.489-2.338 5.69 0 4.391 3.559 7.95 7.95 7.95s7.95-3.559 7.95-7.95v-9.74c1.118.73 2.42 1.156 3.82 1.156V0c-1.9 0-3.593-.93-4.632-2.358l-.014-.02h-4.355v.02c-1.31 0-2.591.214-3.75.606z"/></svg>
-      </a>
-    </div>
-
-    <!-- TEXTOS DE COPYRIGHT (Debajo de los iconos) -->
-    <div class="space-y-2">
       <p class="font-display text-xs tracking-widest text-gray-500 uppercase">
         © 2026 TACTICALOBD2 - TECNOLOGÍA AUTOMOTRIZ
       </p>
-      <p class="font-display text-[10px] tracking-[0.2em] text-gray-600 uppercase">
-        Electrónica Automotriz de Precisión
-      </p>
     </div>
-  </div>
-</footer>
-
-<!-- 3. EL SCRIPT SIEMPRE AL FINAL, ANTES DE CERRAR EL BODY -->
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-</script>
+  </footer>
 
 </body>
 </html>
